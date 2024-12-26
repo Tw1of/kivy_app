@@ -1,0 +1,145 @@
+ScreenManager:
+    MainArea:
+    AllWords:
+    Evolve_page:
+        
+<MainArea>:
+    name: 'MainArea'
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDLabel:
+            text: "Добавить слово"
+            halign: "center"
+            theme_text_color: "Secondary"
+            font_style: "H5"
+            size_hint_y: None
+            height: "40dp"
+
+        TextInput:
+            id: english_word
+            hint_text: "Введите английское слово"
+            multiline: False
+            size_hint_y: None
+            height: "40dp"
+            font_size: "18sp"
+            padding: [10, 10]
+            border: [30, 30, 30, 30]
+
+        TextInput:
+            id: translation
+            hint_text: "Введите перевод"
+            multiline: False
+            size_hint_y: None
+            height: "40dp"
+            font_size: "18sp"
+            padding: [10, 10]
+
+        Button:
+            text: "Добавить слово"
+            size_hint_y: None
+            height: "50dp"
+            on_press: root.add_word(self)
+
+        # Панель навигации снизу
+        MDBottomNavigation:
+            id: bottom_nav
+            panel_color: 0.2, 0.2, 0.2, 1
+
+            MDBottomNavigationItem:
+                name: 'screen_1'
+                text: 'Главная'
+                # icon: 'home'
+                on_tab_press: app.change_screen('MainArea', 'screen_1')
+            
+            MDBottomNavigationItem:
+                name: 'screen_2'
+                text: 'Evolve'
+                # icon: 'home'
+                on_tab_press: app.change_screen('Evolve_page:', 'screen_2')
+
+
+            MDBottomNavigationItem:
+                name: 'screen_3'
+                text: 'Все слова'
+                # icon: 'book-open-page-variant'
+                on_tab_press: app.change_screen('AllWords', 'screen_3')
+
+
+<Evolve_page>:
+    name: 'Evolve_page'
+    BoxLayout:
+        orientation: 'vertical'
+
+
+    # Панель навигации снизу
+    MDBottomNavigation:
+        id: bottom_nav
+        panel_color: 0.2, 0.2, 0.2, 1
+
+        MDBottomNavigationItem:
+            name: 'screen_1'
+            text: 'Главная'
+            # icon: 'home'
+            on_tab_press: app.change_screen('MainArea', 'screen_1')
+
+        
+        MDBottomNavigationItem:
+            name: 'screen_2'
+            text: 'Evolve'
+            # icon: 'home'
+            on_tab_press: app.change_screen('Evolve_page:', 'screen_2')
+
+
+        MDBottomNavigationItem:
+            name: 'screen_3'
+            text: 'Все слова'
+            # icon: 'book-open-page-variant'
+            on_tab_press: app.change_screen('AllWords', 'screen_3')
+
+
+<AllWords>:
+    name: 'AllWords'
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDLabel:
+            id: word_list_label
+            text: 'Список слов'
+            size_hint_y: None
+            height: self.texture_size[1]
+            color: 1, 0, 1, 1
+            font_size: "22sp"
+            font_style: "H5"
+            halign: "center"
+
+        ScrollView:
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: "200dp"
+
+    # Панель навигации снизу
+    MDBottomNavigation:
+        id: bottom_nav
+        panel_color: 0.2, 0.2, 0.2, 1
+
+        MDBottomNavigationItem:
+            name: 'screen_1'
+            text: 'Главная'
+            # icon: 'home'
+            on_tab_press: app.change_screen('MainArea', 'screen_1')
+
+        
+        MDBottomNavigationItem:
+            name: 'screen_2'
+            text: 'Evolve'
+            # icon: 'home'
+            on_tab_press: app.change_screen('Evolve_page:', 'screen_2')
+
+
+        MDBottomNavigationItem:
+            name: 'screen_3'
+            text: 'Все слова'
+            # icon: 'book-open-page-variant'
+            on_tab_press: app.change_screen('AllWords', 'screen_3')
